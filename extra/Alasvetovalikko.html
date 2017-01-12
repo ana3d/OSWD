@@ -1,0 +1,104 @@
+<!-- Harjoitus 12 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <title>Koulutusohjelmat</title>
+    <script>
+        var alemmat_tutkinnot = ["Finanssi- ja talousasiantuntijan koulutus, tradenomi (AMK)", "Ruokatuotannon johtamisen koulutus, restonomi (AMK)", "Hotelli-ja ravintola-alan liikkeenjohdon koulutus, restonomi (AMK)",
+            "Johdon assistenttityön ja kielten koulutus, tradenomi (AMK)", "Journalismikoulutus, medianomi (AMK)", "Liiketalouden koulutus, tradenomi (AMK)", "Liikunnan ja vapaa-ajan koulutus, liikunnanohjaaja (AMK)",
+            "Matkailun koulutus, restonomi (AMK)", "Matkailun liikkeenjohdon koulutus, restonomi (AMK)", "Myyntityön koulutus, tradenomi (AMK)", "Myynnin ja visuaalisen markkinoinnin koulutus, tradenomi (AMK)",
+            "Tietojenkäsittelyn koulutus, tradenomi (AMK)", "ICT-alan koulutus (tietojenkäsittely)"];
+        var ylemmat_tutkinnot = ["Palveluliiketoiminnan johtamisen koulutus, restonomi", "Liiketoiminnan kehittämisen koulutus, tradenomi", "Liikunta-alan kehittämisen ja johtamisen koulutus, liikunnanohjaaja",
+            "Valmennuksen koulutus, liikunnanohjaaja", "Tietojärjestelmäosaamisen koulutusohjelma, tradenomi", "ICT-alan koulutus (tietojenkäsittely)"];
+        <!-- toteuta tähän funktio vaihda() joka kykenee switch-rakennetta käyttäen näkemään, onko valittu ylemmät vai alemmat tutkinnot-->
+        <!-- switch-rakenteesta kutsutaan funktioita tyhjenna ja tayta jotka täyttävät koulutusohjelmat alemman alasvetovalikon sen mukaan, onko kyseessä ylemmät vai alemmat -->
+
+        function vaihda() {
+
+            var valinta = document.getElementById("koulutus").value;
+
+            switch (valinta) {
+
+                case "ylemmat_tutkinnot":
+                    tayta(valinta);
+                    break;
+                case "alemmat_tutkinnot":
+                    tayta(valinta);
+                    break;
+                default:
+                    tyhjenna();
+                    break;
+            }
+
+        }
+
+        <!-- toteuta tähän funktio tyhjenna() -->
+
+        function tyhjenna() {
+            document.getElementById("koulutusohjelmat").innerHTML = "";
+        }
+
+        <!-- toteuta tähän funktio tayta() -->
+
+        function tayta(valinta) {
+
+            if (valinta == "ylemmat_tutkinnot") {
+                for (var i = 0; i < ylemmat_tutkinnot.length; i++) {
+
+                    valinta = new Option(ylemmat_tutkinnot[i]);
+                    document.koulutusohjelma.koulutusohjelmat[i] = valinta;
+
+                }
+
+            } else if (valinta == "alemmat_tutkinnot") {
+
+                for (var j = 0; j < alemmat_tutkinnot.length; j++) {
+
+                    valinta = new Option(alemmat_tutkinnot[j]);
+                    document.koulutusohjelma.koulutusohjelmat[j] = valinta;
+
+                }
+
+
+            }
+
+
+        }
+
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script>
+    </script>
+</head>
+
+<body>
+<h1>Koulutusohjelmat</h1>
+
+<form name="koulutusohjelma" action="">
+    <table border="0">
+        <tbody>
+        <tr>
+            <td>Koulutusohjelmatasot:</td>
+            <td>
+                <!-- Lisää selectin attribuutiksi onchange, jolla on arvona funktiosi kutsu -->
+                <select id="koulutus" onchange="vaihda()">
+                    <option value="valitse">Valitse koulutustaso
+                    <option value="ylemmat_tutkinnot">Ylemm&auml;t AMK tutkinnot
+                    <option value="alemmat_tutkinnot">Alemmat AMK tutkinnot
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Koulutusohjelmat:</td>
+            <td>
+                <select name="koulutusohjelmat" id="koulutusohjelmat">
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+
+</body>
+</html>

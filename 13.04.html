@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Identity Number</title>
+
+
+</head>
+<script>
+	
+	// function shows details about Identity Number
+	function show() {
+		// Read value of identity number from the input field
+	    var hetu = document.getElementById("identityNumber").value;
+      
+		// Check gender
+        var gender = hetu.charAt(9);
+        gender = parseInt(gender);
+        
+        if (gender % 2 === 0) {
+          gender = "Female";
+        } else {
+          gender = "Male";
+        }
+      	// Parse birth day information
+		// Take certain characters (dd, mm, yy and separator character)) from the string with subString() method 
+        var day,month,year,affix;      
+        day = hetu.substring(0,2);
+        month = hetu.substring(2,4);
+        year = hetu.substring(4,6);
+        affix = hetu.substring(6,7);
+      
+
+		// Calculate the year with four digits		
+		if (affix == "-") {
+          year = "19" + year;
+        } else if (affix == "A") {
+          year = "20" + year;
+        } else if (affix == "+"){
+          year = "18" + year;
+        }
+         // Concatenate birth day text
+         var answer;
+         if (hetu.length == 11){
+         answer = gender + ", born " + day + "." + month + "." + year;
+         } else {
+           answer = "Hetu väärin";
+         }
+		// Write the answer on the page, to the answer div, as content of the div
+	    document.getElementById("answer").innerHTML = answer;
+	}
+</script>
+<body>
+	<h3>Identity Number</h3>
+
+	<form>
+		<label>Identity Number: </label> <input type="text" name="identityNumber" id="identityNumber"
+			size="11"> <input type="button" value="Show"
+			onClick="show()">
+	</form>
+
+	<!-- This is the target where the JavaScript will write the answer -->
+	<div id="answer"></div>
+</body>
+</html>
+
+<!-- test example:
+identityNumber = 241289-123A -> Male, born 24.12.1989
+identityNumber = 280210A122B -> Female, born 28.02.2010	
+identityNumber = 150989+1239 -> Male, born 15.09.1889 			
+-->

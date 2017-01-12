@@ -1,0 +1,66 @@
+<!-- Harjoitus 7 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Henkilötietojen syöttö</title>
+<link rel="stylesheet" type="text/css" href="tyylit.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+
+<script type="text/javascript">
+var tekstiNakyvissa = true;
+
+function vilkuta(teksti) {
+     if (tekstiNakyvissa == true) {
+        document.getElementById("vilkkualue").innerHTML = "";
+        tekstiNakyvissa = false;
+     } else {
+        document.getElementById("vilkkualue").innerHTML = teksti;
+        tekstiNakyvissa = true;
+     }
+     setTimeout("vilkuta('" + teksti + "')", 1000);
+}
+
+</script>
+
+</head>
+<body>
+<div id="vilkkualue" style="position: fixed; right: 10; top: 10;"></div>
+<h1>Henkilötietojen syöttö</h1>
+<form action="http://proto58.haaga-helia.fi/henkilo/Kontrolleri" method="post" name="henkilo"
+  onsubmit="return tarkista()">
+<table border="0">
+  <tr><th colspan="2">Yleiset tiedot</th></tr>
+  <tr><td>Etunimi:</td><td><input type="text" name="etunimi" /></td></tr>
+  <tr><td>Sukunimi:</td><td><input type="text" name="sukunimi" /></td></tr>
+  <tr><td>Osasto:</td>
+    <td>
+      <select name="osasto">
+        <option selected="selected">Testaus</option>
+        <option>Ohjelmistosuunnittelu</option>
+        <option>Markkinointi</option>
+      </select>
+    </td>
+  </tr>
+  <tr><td>Puhelin:</td><td><input type="text" name="puhelin"/></td></tr>
+  <tr>
+    <td valign="top">Auto käytettävissä:</td>
+    <td>
+      <input type="radio" name="auto" value="kyllä" checked="checked"/>Kyllä<br/>
+      <input type="radio" name="auto" value="ei" checked="checked"/>Ei<br/>
+    </td>
+  </tr>
+  <tr><th colspan="3">Kotiosoite:</th></tr>
+  <tr><td>Katuosoite:</td><td><input type="text" name="katuosoite"/></td></tr>
+  <tr><td>Postinumero:</td><td><input type="text" name="postinumero"/></td></tr>
+  <tr><td>Postitoimipaikka:</td><td><input type="text" name="postitoimipaikka"/></td></tr>
+</tr>
+  <tr>
+    <td align="right"><input type="submit" value="Hyväksy"/></td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+  vilkuta("Muista täyttää kaikki kentät!");
+</script>
+
+</body>
+</html>

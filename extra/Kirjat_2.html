@@ -1,0 +1,33 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+  <title>
+    Kirjat
+  </title>
+</head>
+<body>
+<table border="1">
+<tbody><tr><th>Kirjalija</th><th>Kirjan nimi</th><th>Sivumäärä</th></tr>
+<script>
+
+	kirja1 = new Array('Kalle Päätalo', 'Huonemiehen poika', 605);
+  	kirja2 = new Array('Mika Waltari', 'Sinuhe', 786);
+  	kirja3 = new Array('Fedor Dostojevski', 'Rikos ja Rangaistus', 516);
+  	kirjat = new Array(kirja1, kirja2, kirja3);
+
+//3.	Tulosta kahta for-silmukkaa ja document.write()-metodia käyttäen kirjojen tiedot HTML-taulukkoon
+
+for (var i = 0; i < kirjat.length; i++){
+	
+	for (var j = 0; j < kirjat.length; j++){
+		document.write("<td>" + kirjat[i][j]);		
+	}
+	document.write("</td></tr>")
+}
+
+
+</script>
+</tbody></table>
+
+
+</body></html>

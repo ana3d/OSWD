@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0072)http://myy.haaga-helia.fi/~jusju/javascript/pohjat/t10/mailimuunnin.html -->
+<!-- Harjoitus 10 --><HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META 
+content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Mailimuunnin</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=Content-Type>
+<!-- Tee tähän funktio muunna, joka pystyy muuntamaan matkan oikein -->
+<SCRIPT>
+
+function muunna(){
+
+// Get distance
+var matka = document.getElementById("matka").value;
+// Variable for mile
+var maili = 1.609344;
+
+
+// Get conversion type wanted
+var conversion = document.getElementById("ly").value;
+
+if (conversion === "m2k") {
+	matka = matka*maili;
+} else {
+	matka = matka/maili;
+}
+// Print result
+document.getElementById("tulos").innerHTML = matka.toFixed(2);
+
+}
+
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 11.00.9600.18098"></HEAD>
+<BODY>
+<H1>Mailimuunnin</H1>
+<FORM name=muuntaja action="">
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD>Matkan yksikkö: </TD>
+    <TD>
+		<SELECT name=ly id="ly"> 
+			<OPTION selected value=m2k id="mailit">maileista kilometreiksi</OPTION> 
+			<OPTION value=k2m id="kilometrit">kilometreistä maileiksi</OPTION>
+		</SELECT> 
+	</TD></TR>
+  <TR>
+    <TD>Muunnettava matka: </TD>
+    <TD><INPUT size=5 name=matka id="matka"></TD></TR>
+  <TR>
+    <TD>Muunnettu matka: </TD>
+    <TD><SPAN id=tulos></SPAN></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><INPUT onclick=muunna() type=button value=Muunna></TD></TR></TBODY></TABLE></FORM></BODY></HTML>

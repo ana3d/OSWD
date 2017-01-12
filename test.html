@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Key Codes</title>
+
+</head>
+<body>
+	<h3>Key Codes</h3>
+	<p id="keycodes">
+		
+	</p>
+
+	<p id="keycodes2">
+  <div id="fizzbuzz"></div>
+</body>
+
+
+<script>
+
+			// Function returns the four digit key codes between min-max 
+			function generateKeyCode(min, max) {
+				
+				// Randomize the key code with Math.random() function
+			    var randomnumber = Math.round((Math.random() * max) + min);
+                // Helper variable for determine how many leading zeros needed
+                var length;
+				
+				// number to string conversion
+                randomnumber = randomnumber.toString();
+				// If number < 1000, check how many leading zeroes needed
+			    if (randomnumber.length < 4){
+                  length = 4 -randomnumber.length;
+                  for (var x = 0; x < length; x++){
+                    randomnumber = "0" + randomnumber;
+                  } 
+                }	
+              // Return random number
+              return randomnumber;
+			}
+			
+
+// Min / Max numbers for random generator				
+var min = 1;
+var max = 9999;
+var temp ;
+var x,y,i;
+
+// Loop for printin random numbers, linebreak after 10 codes.
+for ( i = 1;i < 101; i++){ 
+  temp = generateKeyCode(min,max); 
+  document.getElementById("keycodes").innerHTML += temp + " ";
+    if (i % 10 === 0){
+      document.getElementById("keycodes").innerHTML += "<br>";
+    }  
+}
+
+
+for ( x = 0; x < 10;x++){
+	for( y = 0; y < 10; y++) {	
+		temp = generateKeyCode(min,max);
+		document.getElementById("keycodes2").innerHTML += temp + " ";
+	}
+	document.getElementById("keycodes2").innerHTML += "<br>";
+}
+
+// fizzbuzz
+
+for (var x = 1; x < 101; x++){
+   if (x % 15 === 0 && x % 5 === 0 && x % 3 === 0){
+      document.getElementById("fizzbuzz").innerHTML += "fizzbuzz";
+   } else if (x % 5 === 0){
+      document.getElementById("fizzbuzz").innerHTML += "buzz";
+   } else if (x % 3 === 0) {
+      document.getElementById("fizzbuzz").innerHTML += "fizz";
+   } else {
+      document.getElementById("fizzbuzz").innerHTML += x;
+   }
+   document.getElementById("fizzbuzz").innerHTML += "<br>";
+}
+
+
+
+
+</script>
+</html>
+
+    

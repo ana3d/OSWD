@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0070)http://myy.haaga-helia.fi/~jusju/javascript/pohjat/t8/merkkijonot.html -->
+<!-- Harjoitus 7 --><HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META 
+content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Regular Expressions</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.9600.18098"></HEAD>
+<BODY>
+<SCRIPT type=text/javascript>
+<!-- tarkistuskoodi tulee tarkista-metodiin -->
+function validoi() {
+
+var str = document.getElementById("syote").value;
+var tyhja = /\s/g;
+var str = document.getElementById("muutettu").value = str.replace(tyhja, "");
+}
+
+
+
+</SCRIPT>
+
+<H1>Henkilötietojen syöttö</H1>
+<FORM name=lomake action="">
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD>Henkilötunnus: </TD>
+    <TD><INPUT name=syote id="syote"></TD></TR>
+  <TR>
+    <TD>Tarkistustulos: </TD>
+    <TD><INPUT name=muutettu id="muutettu"></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><INPUT onclick=validoi() type=button value=Validoi></TD></TR></TBODY></TABLE></FORM></BODY></HTML>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Repair Work</title>
+    <style type="text/css">
+        label {
+            display: block;
+            width: 5em;
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript" src="07.10_functions.js"></script>
+    <script>
+
+        function calculate() {
+            // Read values from the input fields
+            var date = document.getElementById("date").value;
+            var starttime = document.getElementById("startTime").value;
+            var endtime = document.getElementById("endTime").value;
+            var description = document.getElementById("description").value;
+
+            // Calculate length of the work as minutes.
+            var start = new Date("1970/01/01 " + starttime);
+            var end = new Date("1970/01/01 " + endtime);
+            var difference = end.getTime() - start.getTime();
+            //conv ms to minutes
+            var jobtime = Math.round(difference / 60000);
+            document.getElementById("answer").innerHTML = "Length of the work was " + jobtime + " minutes.";
+
+            // Call isSunday() function from 07.10_functions.js file
+            var helper = isSunday(date);
+            var hourlyrate = 48;
+            var price;
+            //Calculate price of the repair work
+            if (helper === 0) {
+                // if day = sunday, hourlyrate is 78
+                hourlyrate = 78;
+                price = (hourlyrate / 60) * jobtime;
+                document.getElementById("answer").innerHTML += "<br>The hourly price during the Sundays is " + hourlyrate + " euros<br>Price of this repair work is " + price.toFixed(2) + " euros.";
+            } else {
+                price = (hourlyrate / 60) * jobtime;
+                document.getElementById("answer").innerHTML += "<br>The hourly price during the workdays is " + hourlyrate + " euros<br>Price of this repair work is " + price.toFixed(2) + " euros.";
+            }
+
+            //if user is using not using chrome, manually modify tittle to all caps. onfocusout doesnt work in firefox
+            modifyTitle();
+        }
+
+
+        function modifyTitle() {
+
+            // Read value of title from the input field
+            var title = document.getElementById("title").value;
+
+            // Call allCapsTitleTrimmed() function from 07.10_functions.js file
+            allCapsTitleTrimmed(title);
+        }
+    </script>
+</head>
+<body>
+<h3>Repair Work</h3>
+
+<form>
+    <p>
+        <label>Work Title: </label> <input type="text" name="title" id="title"
+                                           size="25" onfocusout="modifyTitle()">
+    </p>
+
+    <p>
+        <label>Date: </label> <input type="text" name="date" id="date"
+                                     size="8">
+    </p>
+
+    <p>
+        <label>Start Time: </label> <input type="text" name="startTime" id="startTime"
+                                           size="5">
+    </p>
+
+    <p>
+        <label>End Time: </label> <input type="text" name="endTime"
+                                         id="endTime" size="5">
+    </p>
+
+    <p>
+        <label>Description: </label>
+        <textarea name="description" id="description" rows="4" cols="40"></textarea>
+    </p>
+
+    <p>
+        <input type="button" value="Calculate" onClick="calculate()">
+    </p>
+</form>
+
+<!-- This is the target where the JavaScript will write the answer -->
+<div id="answer"></div>
+</body>
+</html>
+
+
+<!-- test example:
+title = installation, date = 04.04.2015, start time = 12:08, end time =13:55  -> Length of the work was 107 minutes. 
+	The hourly price is 48.00 euros during the workdays. 
+	The price of this repair work is 85.60 euros.
+
+title = installation, date = 05.04.2015, start time = 12:08, end time =13:55  -> Length of the work was 107 minutes. 
+	The hourly price is 72.00 euros during the Sundays. 
+	The price of this repair work is 128.40 euros.
+-->

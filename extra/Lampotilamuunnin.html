@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0075)http://myy.haaga-helia.fi/~jusju/javascript/pohjat/t9/lampotilamuunnin.html -->
+<!-- Harjoitus 9 --><HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META 
+content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Lämpötilamuunnin</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=Content-Type><!-- Tee tähän funktio muunna, joka pystyy muuntamaan lämpötilan oikein -->
+<SCRIPT>
+
+function muunna(){
+  // Get type of conversion wanted
+  var conversion = document.getElementById("conv").value;
+  
+  // Get temperature
+  var temperature = document.getElementById("temperature").value;
+  
+  // Create result variable
+  var result;
+  // Check what type of conversion is needed
+  if (conversion == "fahrenheit"){
+    // Fahrenhait
+    result = (temperature -32)*5/9;
+  } else { // Else celcius
+    result = (temperature*1.8) + 32;
+  }
+  // Print results   
+  document.getElementById("tulos").innerHTML = result.toFixed(2);
+
+}
+
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 11.00.9600.18098"></HEAD>
+<BODY>
+<H1>Lampötilamuunnin</H1>
+<FORM name=muuntaja action="">
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD>Lähtölämpötilan yksikkö: </TD>
+    <TD>
+		<SELECT id="conv">
+			<OPTION value="fahrenheit">Fahrenheitistä Celsiukseksi</OPTION>
+			<OPTION value="celsius">Celsiusksesta Fahrenheitiksi</OPTION>
+		</SELECT>
+	</TD></TR>
+  <TR>
+    <TD>Lähtölämpötila: </TD>
+    <TD><INPUT size=5 name=lahtolampotila id="temperature"></TD></TR>
+  <TR>
+    <TD>Tuloslämpötila: </TD>
+    <TD><SPAN id="tulos"></SPAN></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><INPUT onclick=muunna() type=button value=Muunna></TD></TR></TBODY></TABLE></FORM></BODY></HTML>

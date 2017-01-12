@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://myy.haaga-helia.fi/~jusju/javascript/pohjat/t4/hiilikuitu.html -->
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Hiilikuitu</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.9600.18098"></HEAD>
+<BODY>
+<P>Hiilikuitua voidaan käyttää esimerkiksi <A 
+href="http://web.eduskunta.fi/dman/Document.phx?documentId=cl07810111207174&amp;cmd=download">fullereenien</A> 
+kanssa. </P>
+<P>Esimerkiksi <A 
+href="http://sploid.gizmodo.com/heres-how-much-stronger-carbon-fiber-is-compared-to-st-1521751435">teräkseen</A> 
+verrattuna hiilikuidun lujuus on huomattava. </P>
+<SCRIPT>
+// Lisää koodisi tähän
+
+// Empty array for links
+var linkit = [];
+
+
+//loop trough site links, add to array
+for (i = 0; i < document.links.length; i++){
+	linkit.push(document.links[i].href);	
+}
+
+document.write("<h2>Sivun linkit</h2>");
+// Write out links
+for (var j = 0; j < linkit.length; j++){
+	document.write("<a href=" + linkit[j] + ">"+ linkit[j] +"</a><br>");
+}
+
+</SCRIPT>
+</BODY></HTML>

@@ -1,0 +1,48 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Kirjat</title>
+</head>
+<body>
+<!-- Kirjoita ensin taulukoiden luonnit ja sijoitukset -->
+<!-- Seuraavaksi tulosta document.write-komennoin taulukon sisältö selaimeen -->
+<!-- Kaikki mitä tiedostoon tulee editoida tulee yhden script-lohkon sisään -->
+<script>
+
+var kirja1 = new Array();
+var kirja2 = new Array();
+var kirja3 = new Array();
+kirja1["kirjailija"] = "Dante";
+kirja1["nimi"] = "Jumalainen näytelmä";
+kirja1["lkm"] = 717;
+kirja2["kirjailija"] = "Mika Waltari";
+kirja2["nimi"] = "Sinuhe";
+kirja2["lkm"] = "786";
+kirja3["kirjalija"] = "Fedor Dostojevski";
+kirja3["nimi"] = "Rikos ja Rangaistus";
+kirja3["lkm"] = 516;
+
+
+document.write("<table border='1'>");
+document.write("<tr><th>Kirjailija<th>Kirjan nimi<th>Sivumäärä");
+
+// Kirja 1
+document.write("<tr>");
+document.write("<td>" + kirja1['kirjailija'] + "<td>" + 
+kirja1['nimi'] + "<td>" + kirja1['lkm']);
+// Kirja 2
+document.write("<tr>");
+document.write("<td>" + kirja2['kirjailija'] + "<td>" + 
+kirja2['nimi'] + "<td>" + kirja2['lkm']);
+// Kirja 3
+document.write("<tr>");
+document.write("<td>" + kirja3['kirjailija'] + "<td>" + 
+kirja3['nimi'] + "<td>" + kirja3['lkm']);
+
+
+document.write("</table>");
+
+</script>
+
+
+
+</body></html>

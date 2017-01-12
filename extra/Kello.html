@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://myy.haaga-helia.fi/~jusju/javascript/pohjat/t3/aika.html -->
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>Aika</TITLE>
+<META content="text/html" charset="windows-1252">
+<!--<meta http-equiv="refresh" content="1">-->
+<!-- meta refresh laitetaan head tagien sisään. Se laitetaan lataamaan sivu uudestaan sekunnin välein. -->
+<!-- body-tägissä voidaan määritellä taustan ja tekstin värit -->
+<!-- vaihtoehtoisesti tyyli voisi tulla style.css tiedostosta, jolloin sisältö ja muotoilu ei olisi samassa tiedostossa -->
+<!-- muista suurentaa myös fontin kokoa -->
+<!-- ohjelmistosi if-lausekkeineen tulee script tagien sisään -->
+
+<SCRIPT>
+
+function time(){
+//Create new date object
+var aika = new Date();
+//Array for date names
+var paiva = ["Sunnuntai", "Maanantai","Tiistai","Keskiviikko","Torstai","Perjantai","Lauantai"];
+//Create date and check leading zeroes
+var date = leadingZero(aika.getDate()) + "." + leadingZero((aika.getMonth()+1)) + "." + aika.getFullYear();
+// Create time and check leading zeroes
+var klo = leadingZero(aika.getHours()) + ":" + leadingZero(aika.getMinutes()) + ":" + leadingZero(aika.getSeconds());
+// output string
+var output = "<font size='52'>Tänään on " + paiva[aika.getDay()] + "<br>" + date + " " + klo;
+// print output
+document.getElementById("kello").innerHTML = output;
+
+}
+
+// if day/month/min/sec/hour is less than 10, add leading zero
+function leadingZero(x){
+	if (x < 10) {
+		x = "0"+x;
+	}
+	return x;
+}
+// call time() function every 500ms
+setInterval(time, 500);
+
+</SCRIPT>
+</head>
+<body bgcolor="#000000" text="white" onload="time()">
+<div id="kello"></div>
+</font>
+</body>
+</html>
